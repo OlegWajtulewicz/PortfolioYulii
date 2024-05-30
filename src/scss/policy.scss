@@ -1,0 +1,105 @@
+/* ------------------------- Text Block -------------------------------------------------- */
+
+.textblock p + h1, .textblock p + h2, .textblock ul + h1, .textblock ul + h2, .textblock ol + h1, .textblock ol + h2 {
+    margin-top: .75em;
+}
+
+.textblock p + h3, .textblock ul + h3, .textblock ol + h3 {
+    margin-top: 1.75em;
+}
+
+.textblock p + p strong, .textblock ul + p strong, .textblock ol + p strong {
+    margin-top: .75em;
+    margin-bottom: .5em;
+    display: inline-block;
+}
+
+/*  Strong (bold)  */
+
+.textblock strong {
+    font-weight: 600;
+    color: $accentColor;
+}
+
+/*  EM (italic)  */
+
+.textblock em {
+    color: inherit;
+}
+
+/*  IMG  */
+
+.textblock img {
+    padding-top: 1em;
+    padding-bottom: 2em;
+    width: 100%;
+}
+
+/*  UL (bullet Points)  */
+
+.textblock ul {
+    padding: 0;
+    display: inline;
+    width: 100%;
+}
+
+.textblock ul li {
+    line-height: 1.5;
+    color: $textColor;
+    padding-left: 1.5em;
+    margin-bottom: 1em;
+    position: relative;
+}
+
+.textblock ul li:before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    position: absolute;
+    background: $textColor;
+    left: .1em;
+    top: .55em;
+}
+
+/*  OL  */
+
+.textblock ol {
+    padding: 0;
+    display: inline;
+    width: 100%;
+}
+
+.textblock ol li {
+    line-height: 1.5;
+	list-style: decimal;
+    color: $textColor;
+    margin-bottom: 1em;
+    position: relative;
+    margin-left: 1.2em;
+    padding-left: .4em;
+}
+//========================================================================================================================================================
+.policy {
+    background-color: $mainColor;
+    @include adaptiveValue("padding-top", 80, 40);
+    @include adaptiveValue("padding-bottom", 80, 40);
+    &__row {
+        display: flex;
+        flex-wrap: wrap;
+        position: relative;
+    }
+    &__flex-col {
+        display: block;
+        width: 100%;
+        order: 2;
+        position: relative;
+        p {
+            margin-bottom: 1em;
+            color: $textColor;
+            font-size: 1em;
+            line-height: 1.75;
+            font-weight: 400;
+        }
+    }
+}

@@ -1,0 +1,103 @@
+// ===============
+// colors palette
+// ===============
+:root {
+	// Site colors (Кольори сайту):
+	// =================================================================
+	--primary: #0a9396; // Site main color - (Основний колір сайту)
+	--secondary: #94d2bd; // Site secondary color - (Додатковий колір сайту)
+	--accent: #0090c1; // Site accent color - (Наприклад: кнопки дії, заголовки, посилання)
+	--inverse: #ffff3f; // Site inverse color - (Наприклад: для створення контрасту між фоном та текстом)
+
+	// Background colors (Фонові кольори):
+	// =================================================================
+	--bg-primary: #242423; // BG primary background color - (Основний фоновий колір сайту)
+	--bg-secondary: #7678ed; // BG secondary background color - (Додатковий фоновий колір сайту)
+	--bg-accent: #4cc9f0; // BG accent - наприклад, може бути використаний для встановлення кольору фону для акцентних елементів, таких як кнопки або іконки.
+	--bg-inverse: #2d00f7; // BG inverse - наприклад, може використовуватися для налаштування кольору фону на світлому тексті.
+  --bg-gradient: linear-gradient(315deg, #333232 25%, #2b2626 40%, #201e1e 50%, #1f1d1d 65%, #1f1f1f 80%, #1f1f1f);
+
+	// Text colors (Текстові кольори):
+	// =================================================================
+	--text-primary: #fbfffe; // Text primary text color - (Основний текстовий колір сайту)
+	--text-secondary: #080708; // Text secondary text color - (Додатковий текстовий колір сайту)
+	--text-accent: #e8eddf; // Text accent - наприклад, може використовуватися для встановлення кольору тексту для акцентних елементів на сторінці, таких як заголовки або кнопки.
+	--text-inverse: #e8eddf; // Text inverse - наприклад, може використовуватися для налаштування кольору тексту на темному фоні.
+	// =================================================================
+}
+:root {
+    --background-color: #18181B;
+    --text-color: #A1A1AA;
+
+
+    --background-gradient: linear-gradient(315deg, #333232 25%, #2b2626 40%, #201e1e 50%, #1f1d1d 65%, #1f1f1f 80%, #1f1f1f);
+  
+    --card-background-color: rgba(255, 255, 255, .015);
+    --card-border-color: rgba(255, 255, 255, 0.1);
+    --card-box-shadow-1: rgba(0, 0, 0, 0.05);
+    --card-box-shadow-1-y: 3px;
+    --card-box-shadow-1-blur: 6px;
+    --card-box-shadow-2: rgba(0, 0, 0, 0.1);
+    --card-box-shadow-2-y: 8px;
+    --card-box-shadow-2-blur: 15px;
+    --card-label-color: #FFFFFF;
+    --card-icon-color: #D4D4D8;
+    --card-icon-background-color: rgba(255, 255, 255, 0.08);
+    --card-icon-border-color: rgba(255, 255, 255, 0.12);
+    --card-shine-opacity: .1;
+    --card-shine-gradient: conic-gradient(from 205deg at 50% 50%, rgba(89, 35, 189, 0) 0deg, #632ac0 25deg, rgba(113, 52, 211, 0.18) 295deg, rgba(104, 46, 197, 0) 360deg);
+    --card-line-color: #2A2B2C;
+    --card-tile-color: rgba(97, 52, 201, 0.05);
+  
+    --card-hover-border-color: rgba(255, 255, 255, 0.377);
+    --card-hover-box-shadow-1: rgba(0, 0, 0, 0.04);
+    --card-hover-box-shadow-1-y: 5px;
+    --card-hover-box-shadow-1-blur: 10px;
+    --card-hover-box-shadow-2: rgba(0, 0, 0, 0.3);
+    --card-hover-box-shadow-2-y: 15px;
+    --card-hover-box-shadow-2-blur: 25px;
+    --card-hover-icon-color: #9934d3;
+    --card-hover-icon-background-color: rgba(131, 36, 209, 0.1);
+    --card-hover-icon-border-color: rgba(184, 52, 211, 0.2);
+  
+    --blur-opacity: .01;
+  
+    &.light {
+      --background-color: #FAFAFA;
+      --text-color: #52525B;
+  
+      --card-background-color: transparent;
+      --card-border-color: rgba(24, 24, 27, 0.08);
+      --card-box-shadow-1: rgba(24, 24, 27, 0.02);
+      --card-box-shadow-1-y: 3px;
+      --card-box-shadow-1-blur: 6px;
+      --card-box-shadow-2: rgba(24, 24, 27, 0.04);
+      --card-box-shadow-2-y: 2px;
+      --card-box-shadow-2-blur: 7px;
+      --card-label-color: #18181B;
+      --card-icon-color: #18181B;
+      --card-icon-background-color: rgba(24, 24, 27, 0.04);
+      --card-icon-border-color: rgba(24, 24, 27, 0.1);
+      --card-shine-opacity: .3;
+      --card-shine-gradient: conic-gradient(from 205deg at 50% 50%, rgba(75, 16, 185, 0) 0deg, #5110b9 25deg, rgba(113, 52, 211, 0.18) 295deg, rgba(81, 16, 185, 0) 360deg);
+      --card-line-color: #E9E9E7;
+      --card-tile-color: rgba(67, 16, 185, 0.05);
+  
+      --card-hover-border-color: rgba(24, 24, 27, 0.15);
+      --card-hover-box-shadow-1: rgba(24, 24, 27, 0.05);
+      --card-hover-box-shadow-1-y: 3px;
+      --card-hover-box-shadow-1-blur: 6px;
+      --card-hover-box-shadow-2: rgba(24, 24, 27, 0.1);
+      --card-hover-box-shadow-2-y: 8px;
+      --card-hover-box-shadow-2-blur: 15px;
+      --card-hover-icon-color: #18181B;
+      --card-hover-icon-background-color: rgba(131, 36, 209, 0.1);
+      --card-hover-icon-border-color: rgba(184, 52, 211, 0.2);
+  
+      --blur-opacity: .1;
+    }
+  
+    &.toggle .grid * {
+      transition-duration: 0s !important;
+    }
+}

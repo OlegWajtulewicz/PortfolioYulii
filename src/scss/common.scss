@@ -1,0 +1,200 @@
+// Заголовки, загальні БЕМ блоки та інше...
+.title {
+	font-size: 44px;
+	font-weight: 900;
+	//color: $opasityColor;
+	line-height: 137%;
+	@media (max-width: $mobile) {
+		font-size: 32px;
+	}
+}
+.text {
+	font-size: 16px;
+	line-height:  144%;
+	//color: $opasityColor;
+}
+
+.title-dark {
+	@media (max-width: $mobile) {
+		text-align: center;
+		font-size: 18px;
+	}
+}
+.container-small {
+	max-width: toRem(1255);
+	margin-inline: auto;
+}
+.block-title {
+    color: $textColor;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    @include adaptiveValue("font-size", 22, 18);
+    @include adaptiveValue("letter-spacing", 1.5, 1);
+    line-height: math.div( 42, 22);
+    position: relative;
+    padding-left: toRem(50);
+    margin-bottom: toRem(10);
+	
+    &::before{
+        content:'';
+        position: absolute;
+        background-color: $accentColor;
+        height: toRem(12);
+        width: toRem(12);
+        left: toRem(13);
+		top: 50%;
+		transform: translate(50%, -50%);
+    }
+}
+
+.box {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #942a2a;
+    transform: translate(0%, 100%);
+    z-index: 1000;
+    @media (max-width:$mobile){
+        display: none; 
+    }
+}
+.transition {
+    position: fixed;
+    z-index: 100;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    //top: 100%;
+    left: 0%;
+    pointer-events: none;
+    //background: $bgColor;
+    //background: url('@img/bg.jpg') 0 0 / cover no-repeat;
+    -webkit-transform: scaleY(1);
+    transform: scaleY(1);
+    background: #cec9ba;
+}
+
+.loading-words {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    pointer-events: none;
+    display: block;
+    will-change: opacity;
+    z-index: 1000;
+    h2 {
+        margin: 0;
+        padding: 0;
+        color: #050202;
+        position: absolute;
+        top: 0px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: none;
+        //display: block;
+        padding-left: .6em;
+        white-space: nowrap;
+        padding-right: .4em;
+        will-change: opacity;
+        z-index: 1000;
+    }
+}
+.transition .loading-words .home-active, 
+.transition .loading-words .home-active-last {
+    opacity: 0;
+    display: block;
+}
+// .transition .dot {
+//     display: block;
+//     position: absolute;
+//     border-radius: 50%;
+//     background: #050202;
+//     left: 0;
+//     top: 47%;
+//     bottom: auto;
+//     width: calc(clamp(16px, 1.2vw, 19px) / 2);
+//     height: calc(clamp(16px, 1.2vw, 19px) / 2);
+//     transform: translate(0, 0) scale(1);
+//     z-index: 1000;
+// }
+
+h2 {
+    
+    font-weight: 450;
+    font-style: normal;
+    //font-size: calc(clamp(3.25em, 5vw, 4.5em) * 1);
+    @include adaptiveValue("font-size", 70, 40);
+    line-height: 1.065;
+    margin-bottom: .66em;
+}
+.loading-words h2.active {
+    display: block;
+    opacity: 1;
+}
+//========================================================================================================================================================
+.span-line {
+    position: relative;
+    display: inline-flex;
+    overflow: hidden;
+}
+.span-line-inner {
+    position: relative;
+    display: block;
+    //translate: none !important;
+}
+
+//======= lenis Recommended CSS =================================================================================================================================================
+html.lenis, html.lenis body {
+    height: auto;
+  }
+  
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+  
+  .lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+  }
+  
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+  
+  .lenis.lenis-scrolling iframe {
+    pointer-events: none;
+  }
+  //========================================================================================================================================================
+  
+.overlay {
+    position: absolute;
+    top: -10%;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+.in-height {
+    &::before{
+        content:'';
+        padding-bottom: 140% !important;
+    }
+    
+}
+//========================================================================================================================================================
+
+.hidden {
+    visibility: hidden;
+    opacity: 0;
+}
+
+
+
+
+
+
