@@ -24,28 +24,7 @@ window.onload = function() {
 initPageTransitions();
  
 //==========  transition  ==============================================================================================================================================
-// function pageTransition() {     // рабочий
-//   //console.log('pageTransition() is called');
-//   let tl = gsap.timeline();
 
-//   tl.to(".transition", {
-//     duration: 1,
-//     scaleY: 1,
-//     //y: '0%',
-//     transformOrigin: "bottom",
-//     ease: "power4.inOut",
-//   });
-
-//   tl.to(".transition", {
-//     duration: 1,
-//     scaleY: 0,
-//    // y: '-100%',
-//     transformOrigin: "top",
-//     ease: "power4.inOut",
-//     delay: 0.2,
-//   });
-// }
-//========================================================================================================================================================
 function pageTransition() {
   let tl = gsap.timeline();
 
@@ -318,9 +297,7 @@ function initTricksWords() {
 
   var wordWrap = spanWord.item(i);
   wordWrap.innerHTML = wordWrap.innerHTML.replace(/(^|<\/?[^>]+>|\s+)([^\s<]+)/g, '$1<span class="span-line"><span class="span-line-inner">$2</span></span>');
-
   }
-
 }
 
 initTricksWords();
@@ -332,8 +309,6 @@ function initScript() {
   initScrolltriggerNav();
   addActiveClassBasedOnTitle();
   initScrolltriggerAnimations();
-  
-  
   
 }
 
