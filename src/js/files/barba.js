@@ -916,6 +916,65 @@ document.addEventListener('DOMContentLoaded', function() {
   initCookie();
 });
 
+//========================================================================================================================================================
+/* 
+
+
+function initBarbaNavUpdate(data) {
+            const currentUrl = new URL(window.location.href);
+            const currentPath = currentUrl.pathname;
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(data.next.html, 'text/html');
+            const updateItems = doc.querySelectorAll('[data-barba-update]');
+
+            document.querySelectorAll('[data-barba-update]').forEach((link, index) => {
+                const newLink = updateItems[index];
+                const linkHref = newLink.getAttribute('href');
+
+                if (linkHref === currentPath) {
+                    link.setAttribute('data-link-status', 'active');
+                } else {
+                    link.setAttribute('data-link-status', 'inactive');
+                }
+            });
+        }
+
+        function updateNavLinks() {
+            const currentPath = window.location.pathname;
+
+            document.querySelectorAll('[data-barba-update]').forEach(link => {
+                const linkHref = link.getAttribute('href');
+
+                if (linkHref === currentPath) {
+                    link.setAttribute('data-link-status', 'active');
+                } else {
+                    link.setAttribute('data-link-status', 'inactive');
+                }
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            updateNavLinks();
+
+            barba.init({
+                transitions: [{
+                    name: 'default-transition',
+                    async leave(data) {
+                        const done = this.async();
+                        await new Promise(resolve => setTimeout(resolve, 500));
+                        done();
+                    },
+                    async enter(data) {
+                        initBarbaNavUpdate(data);
+                        updateNavLinks();
+                        await new Promise(resolve => setTimeout(resolve, 500));
+                    }
+                }]
+            });
+        });  
+        
+        
+        */
 
 
 

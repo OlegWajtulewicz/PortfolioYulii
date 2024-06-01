@@ -37,10 +37,6 @@ lenis.on('scroll', (e) => {
   //console.log(e)
 })
 
-// function raf(time) {
-//   lenis.raf(time)
-//   requestAnimationFrame(raf)
-// }
 
 function raf(time) {
   const startTime = performance.now();
