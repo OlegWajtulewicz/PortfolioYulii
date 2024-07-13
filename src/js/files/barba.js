@@ -114,6 +114,10 @@ tl.to(".loading-words", {
 // первая загрузка первой страницы
 function initLoaderHome() {
   let tl = gsap.timeline();
+
+  tl.set("html", { 
+		cursor: "wait"
+	});
   
   tl.set(".transition", { 
 		top: "0",
@@ -142,9 +146,6 @@ function initLoaderHome() {
 		opacity: 1,
 	});
 
-  // tl.set("html", { 
-	// 	cursor: "wait"
-	// });
 
   tl.to(".loading-words", {
 		duration: .8,
@@ -160,7 +161,7 @@ function initLoaderHome() {
     stagger: .15,
     ease: "none",
     onStart: homeActive
-  },"=-.4");
+  },"-=.4");
 
   function homeActive() {
     gsap.to(".loading-words .home-active", {
@@ -183,18 +184,18 @@ function initLoaderHome() {
 		duration: .3,
 		opacity: 0,
     ease: "linear"
-	},"=-.8");	
-
-//  tl.set("html", { 
-// 		cursor: "auto"
-// 	},"=-1.2");
+	},"-=.8");	
 
   tl.to(".wrapper", { top: 0, duration: 1, ease: "power3.inOut", delay: 0.3 },"=-1.1");
 
   tl.set(".transition", { 
     top: "calc(100%)",
     scaleY: 0, 
-  },"=+.5");	
+  },"+=.5");
+  
+  tl.set("html", { 
+		cursor: "auto"
+	},"-=1.2");
 
   tl.to(".slow-load", {
     duration: 1,
@@ -230,10 +231,7 @@ function loaderHome() {
 
   tl.set(".loading-words", { 
 		opacity: 1,
-    
 	});
-
-  
 
   tl.to(".loading-words", {
 		duration: .8,
@@ -256,11 +254,11 @@ function loaderHome() {
 		duration: .3,
 		opacity: 0,
     ease: "linear"
-	},"=-.8");
+	},"-=.8");
 
   tl.set("html", { 
 		cursor: "auto"
-	},"=-1.2");
+	},"-=1.2");
 
   tl.to(".wrapper", { top: 0, duration: 1, ease: "power3.inOut", delay: 0.3 },"=-3.1");
   
@@ -646,22 +644,17 @@ function initScrolltriggerAnimations() {
   
   if (document.querySelector('.hello')) {
   // Анимация .hello__avatar
-  if (document.querySelector('.hello__avatar')) {
-    document.querySelectorAll('.hello__avatar').forEach(function(triggerElement) {
-      let tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: '.hello',
-          start: "0 bottom",
-          scrub: 1
-        }
-      });
-  
-      tl.to(triggerElement, {
-        y: 140,
-        ease: "none"
-      });
+    gsap.to('.hello__avatar', {
+      scrollTrigger: {
+        trigger: '.hello',
+        start: "0 top",
+        end: "bottom top",
+        scrub: 1,
+        //markers: true
+      },
+      yPercent: 10,
+      //ease: "none"
     });
-  }
 
   // Анимация для .hello__content
   if (document.querySelector('.hello__content')) {

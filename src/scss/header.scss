@@ -131,8 +131,10 @@
 				}
 			}
 		}
-		&.active {
-			color: $mainColor;
+		button {
+			&.active {
+				color: $opAccentColor;
+			}
 		}
 		@media (max-width:$tablet){
 			@include adaptiveValue("margin-right", 12, 6);

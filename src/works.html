@@ -4,19 +4,13 @@
 		"title":"Filmografia"
 		})
 		<body data-barba="wrapper">
-		<div class="transition">
-			<div class="loading-words">
-				<h2 class="home-active home-active-first">Hello</h2>
-				<h2>Home</h2>
-				<h2>Filmografia</h2>
-			</div>
-		</div>
+			@@include('html/_transition.htm',{})
 		<div class="noise"></div>
 		<div class="wrapper" data-barba="container" data-barba-namespace="filmografia">
 			@@include('html/_header.htm',{})
 			<main class="page">
 				<section class="works page__container section dark">
-					<h1 class="works__main-title title">Filmografia</h1>
+					<h1 class="works__main-title title" data-lang="menu__link-2">Filmografia</h1>
 					<div class="hello__links" data-da=".menu__body, 991.98">
 						<a href="https://filmpolski.pl/fp/index.php?osoba=11175977" target="_blank" class="hello__link-1 ">
 							<img class="ibg" src="@img/FP.svg" alt="FP">

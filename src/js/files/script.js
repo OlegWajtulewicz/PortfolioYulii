@@ -55,7 +55,417 @@ function raf(time) {
 
 requestAnimationFrame(raf)
 //========================================================================================================================================================
+// Получаем все кнопки для переключения языков
+const langButtons = document.querySelectorAll("[data-btn]");
+const allLangs = ["pl", "en"];
+const currentPathName = window.location.pathname;
+let currentLang = localStorage.getItem("language") || checkBrowserLang() || "pl";
+let currentTexts = {};
 
+// Тексты на домашней странице
+const homeTexts = {
+	"menu__link-1": { pl: "Aktualności", en: "Recently" },
+	"menu__link-2": { pl: "Filmografia", en: "Filmography" },
+	"menu__link-4": { pl: "Contakt", en: "Contact" },
+	"hello_text": { pl: "Kierownik produkcji | Koordynacja produkcyjna", en: "Production manager | Production coordination" },
+	"loading-word": { pl: "Cześć", en: "Hello" },
+	"works_title": { pl: "Aktualności", en: "Recently" },
+	"loading-word-3": { pl: "Aktualności", en: "Recently" },
+	"loading-word-4": { pl: "Filmografia", en: "Filmography" },
+	"policy": { pl: "Polityka prywatności", en: "Privacy Policy" },
+	"contact": { pl: "Skontaktuj się ze mną", en: "Contact me" },
+	"chłopi": { pl: "CHŁOPI", en: "The Peasants" },
+	"chłopi-sub": { pl: "Film animowany", en: "Animated movie" },
+	"chłopi-role": { pl: "Koordynacja produkcyjna", en: "Production coordination" },
+	"chłopi-descr": {
+		pl: "Historia o tragicznej miłości i życiu w małej społeczności, gdzie reguły i brutalne zasady gry wyznaczają każdemu określone miejsce w grupie, a wyjście poza ciasne ramy grozi upokorzeniem i odrzuceniem.",
+		en: "A tale of star-crossed love and life within the confines of a small community, where rigid rules and harsh codes of conduct dictate each individual's position within the group. Stepping beyond these narrow confines risks humiliation and ostracism."
+	},
+};
+
+// Загрузка переводов из внешнего файла
+// async function loadTranslations() {
+//     try {
+//         const response = await fetch('./src/js/translations.json');
+//         if (!response.ok) {
+//             throw new Error('Network response was not ok');
+//         }
+//         currentTexts = await response.json();
+//         checkPagePathName();
+//         changeLang();
+//         checkActiveLangButton();
+//     } catch (error) {
+//         console.error('Error loading translations:', error);
+//     }
+// }
+
+// Проверка пути страницы сайта
+function checkPagePathName() {
+	switch (currentPathName) {
+		default:
+			currentTexts = homeTexts;
+			break;
+	}
+}
+checkPagePathName();
+
+// Изменение языка у текстов
+function changeLang() {
+	for (const key in currentTexts) {
+		const elements = document.querySelectorAll(`[data-lang=${key}]`);
+		elements.forEach(element => {
+			element.textContent = currentTexts[key][currentLang];
+		});
+	}
+	// Обновление URL с выбранным языком
+	const urlParams = new URLSearchParams(window.location.search);
+	urlParams.set('lang', currentLang);
+	const newUrl = `${window.location.origin}${window.location.pathname}?${urlParams.toString()}${window.location.hash}`;
+	window.history.replaceState(null, '', newUrl);
+}
+changeLang();
+
+// Вешаем обработчики на каждую кнопку
+langButtons.forEach((btn) => {
+	btn.addEventListener("click", (event) => {
+		if (!event.target.classList.contains("active")) {
+			currentLang = event.target.dataset.btn;
+			localStorage.setItem("language", currentLang);
+			resetActiveClass(langButtons, "active");
+			btn.classList.add("active");
+			changeLang();
+		}
+	});
+});
+
+// Сброс активного класса у переданного массива элементов
+function resetActiveClass(arr, activeClass) {
+	arr.forEach((elem) => {
+		elem.classList.remove(activeClass);
+	});
+}
+
+// Проверка активной кнопки
+function checkActiveLangButton() {
+	const activeBtn = document.querySelector(`[data-btn="${currentLang}"]`);
+	if (activeBtn) {
+		activeBtn.classList.add("active");
+	} else {
+		document.querySelector('[data-btn="pl"]').classList.add("active");
+	}
+}
+checkActiveLangButton();
+
+// Проверка языка браузера
+function checkBrowserLang() {
+	const navLang = navigator.language.slice(0, 2).toLowerCase();
+	return allLangs.includes(navLang) ? navLang : null;
+}
+
+loadTranslations()
+
+console.log("navigator.language", checkBrowserLang());
+
+
+
+//==  translations ======================================================================================================================================================
+/** 
+const langButtons = document.querySelectorAll("[data-btn]");
+const allLangs = ["pl", "en"];
+const currentPathName = window.location.pathname;
+let currentLang =
+	localStorage.getItem("language") || checkBrowserLang() || "pl";
+let currentTexts = {};
+
+
+const homeTexts = {
+	"menu__link-1": {
+		pl: "Aktualności",
+		en: "Recently",
+	},
+	"menu__link-2": {
+		pl: "Filmografia",
+		en: "Filmography",
+	},
+	"menu__link-4": {
+		pl: "Contakt",
+		en: "Contact ",
+	},
+	"hello_text": {
+		pl: "Kierownik produkcji | Koordynacja produkcyjna",
+		en: "Production manager | Production coordination",
+	},
+	"loading-word": {
+		pl: "Cześć",
+		en: "Hello",
+	},
+	"works_title": {
+		pl: "Aktualności",
+		en: "Recently",
+	},
+	"loading-word-3": {
+		pl: "Aktualności",
+		en: "Recently",
+	},
+	"loading-word-4": {
+		pl: "Filmografia",
+		en: "Filmography",
+	},
+	"policy": {
+		pl: "Polityka prywatności",
+		en: "Privacy Policy",
+	},
+	"contact": {
+		pl: "Skontaktuj się ze mną",
+		en: "Contact me",
+	},
+	"chłopi": {
+		pl: "CHŁOPI",
+		en: "The Peasants",
+	},
+	"chłopi-sub": {
+		pl: "Film animowany",
+		en: "Animated movie",
+	},
+	"chłopi-role": {
+		pl: "Koordynacja produkcyjna",
+		en: "Production coordination",
+	},
+	"chłopi-descr": {
+		pl: "Historia o tragicznej miłości i życiu w małej społeczności, gdzie reguły i brutalne zasady gry wyznaczają każdemu określone miejsce w grupie, a wyjście poza ciasne ramy grozi upokorzeniem i odrzuceniem.",
+		en: "A tale of star-crossed love and life within the confines of a small community, where rigid rules and harsh codes of conduct dictate each individual's position within the group. Stepping beyond these narrow confines risks humiliation and ostracism.",
+	},
+};
+
+
+// Проверка пути страницы сайта
+function checkPagePathName() {
+	switch (currentPathName) {
+		default:
+			currentTexts = homeTexts;
+			break;
+	}
+}
+checkPagePathName();
+
+// Изменение языка у текстов
+function changeLang() {
+    for (const key in currentTexts) {
+		const elements = document.querySelectorAll(`[data-lang=${key}]`);
+		elements.forEach(element => {
+		  element.textContent = currentTexts[key][currentLang];
+		});
+		setBlockDisplay()
+	}
+    // Update URL with selected language
+    const urlParams = new URLSearchParams(window.location.search);
+    urlParams.set('lang', currentLang);
+    const newUrl = `${window.location.origin}${window.location.pathname}?${urlParams.toString()}${window.location.hash}`;
+    window.history.replaceState(null, '', newUrl);
+    }
+changeLang();
+
+//========================================================================================================================================================
+
+
+// Вешаем обработчики на каждую кнопку
+langButtons.forEach((btn) => {
+	btn.addEventListener("click", (event) => {
+		if (!event.target.classList.contains("active")) {
+			currentLang = event.target.dataset.btn;
+			localStorage.setItem("language", event.target.dataset.btn);
+			resetActiveClass(langButtons, "active");
+			btn.classList.add("active");
+			changeLang();
+			setBlockDisplay();
+		}
+	});
+});
+
+// Сброс активного класса у переданного массива элементов
+function resetActiveClass(arr, activeClass) {
+	arr.forEach((elem) => {
+		elem.classList.remove(activeClass);
+	});
+}
+
+// Проверка активной кнопки
+function checkActiveLangButton() {
+	switch (currentLang) {
+		
+		case "pl":
+			document
+				.querySelector('[data-btn="pl"]')
+				.classList.add("active");
+			break;
+		case "en":
+			document
+				.querySelector('[data-btn="en"]')
+				.classList.add("active");
+			break;
+
+		default:
+			document
+				.querySelector('[data-btn="pl"]')
+				.classList.add("active");
+			break;
+	}
+}
+checkActiveLangButton();
+
+// Проверка языка браузера
+function checkBrowserLang() {
+	const navLang = navigator.language.slice(0, 2).toLowerCase();
+	const result = allLangs.some((elem) => {
+		return elem === navLang;
+	});
+	if (result) {
+		return navLang;
+	}
+}
+
+console.log("navigator.language", checkBrowserLang());
+
+//========================================================================================================================================================
+function getLanguageFromURL() {
+	const urlParams = new URLSearchParams(window.location.search);
+	const langParam = urlParams.get('lang');
+	if (langParam) {
+	  return langParam.toLowerCase();
+	}
+	return null;
+  }
+  
+  function setBlockDisplay() {
+	const lang = getLanguageFromURL();
+	const blocks = document.querySelectorAll('[data-block]');
+  
+	for (const block of blocks) {
+	  const blockLang = block.getAttribute('data-block');
+	  if (blockLang === lang) {
+		//block.style.display = 'block';
+	  } else {
+		//block.style.display = 'none';
+	  }
+	}
+  }
+  
+  window.addEventListener('DOMContentLoaded', setBlockDisplay);
+
+  */
+
+  /**
+   // Функция-обёртка для получения языка из URL-адреса
+const allLangs = ["pl", "en"];
+let currentLang = localStorage.getItem("currentLang") || checkBrowserLang() || "pl";
+let currentTexts = {};
+
+// Загрузка переводов из внешнего файла
+async function loadTranslations() {
+  try {
+    const response = await fetch('./translations.json');
+    if (!response.ok) {
+      throw new Error(`Network response was not ok, status: ${response.status}`);
+    }
+    currentTexts = await response.json();
+    changeLang(); // Обновить текст на странице после загрузки переводов
+  } catch (error) {
+    console.error('Error loading translations:', error);
+  }
+}
+
+// Получение языка из параметров URL
+function getLanguage() {
+  const langParams = new URLSearchParams(window.location.search);
+  const lang = langParams.get('lang');
+  if (lang && allLangs.includes(lang)) {
+    return lang;
+  }
+  return currentLang;
+}
+
+// Установка отображения блоков контента на основе языка
+function setBlockDisplay(lang) {
+  const blocks = document.querySelectorAll('[data-block]');
+  blocks.forEach(block => {
+    const blockLang = block.getAttribute('data-block');
+    block.style.display = blockLang === lang ? 'block' : 'none';
+  });
+}
+
+// Сброс класса "active" с кнопок языка
+function resetActiveClass(buttons, className) {
+  buttons.forEach(button => button.classList.remove(className));
+}
+
+// Добавление класса "active" к кнопке языка
+function checkActiveLangButton(lang) {
+  const langButtons = document.querySelectorAll('[data-btn]');
+  resetActiveClass(langButtons, 'active');
+  const activeButton = Array.from(langButtons).find(button => button.getAttribute('data-btn') === lang);
+  if (activeButton) {
+    activeButton.classList.add('active');
+  }
+}
+
+// Обновление отображаемого текста
+function changeLang() {
+  const currentLanguage = getLanguage();
+  const textElements = document.querySelectorAll('[data-lang]');
+  textElements.forEach(element => {
+    const elementLang = element.getAttribute('data-lang');
+    if (elementLang && currentTexts[elementLang]) {
+      element.textContent = currentTexts[elementLang][currentLanguage];
+    }
+  });
+
+  setBlockDisplay(currentLanguage);
+  checkActiveLangButton(currentLanguage);
+
+  // Обновление URL с выбранным языком
+  const urlParams = new URLSearchParams(window.location.search);
+  urlParams.set('lang', currentLanguage);
+  history.replaceState(null, '', `?${urlParams}`);
+}
+
+// Обработка события нажатия кнопки языка
+function handleLanguageButtonClick(event) {
+  const clickedButton = event.target;
+  const lang = clickedButton.getAttribute('data-btn');
+  if (lang && allLangs.includes(lang)) {
+    currentLang = lang;
+    changeLang();
+    localStorage.setItem('currentLang', currentLang);
+  }
+}
+
+// Проверка языка браузера
+function checkBrowserLang() {
+  const navLang = navigator.language.slice(0, 2).toLowerCase();
+  return allLangs.includes(navLang) ? navLang : null;
+}
+
+// Загрузка страницы
+window.addEventListener('DOMContentLoaded', () => {
+  // Проверка localStorage для предпочитаемого языка
+  const storedLang = localStorage.getItem('currentLang');
+  if (storedLang && allLangs.includes(storedLang)) {
+    currentLang = storedLang;
+  }
+
+  // Загрузка переводов для текущей страницы
+  loadTranslations();
+
+  // Добавление обработчика события нажатия кнопки языка
+  const langButtons = document.querySelectorAll('[data-btn]');
+  langButtons.forEach(button => button.addEventListener('click', handleLanguageButtonClick));
+
+  // Отображение контента на основе выбранного языка
+  changeLang();
+});
+
+    
+  */  
   
 });
 

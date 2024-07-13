@@ -1,19 +1,11 @@
 
 <!DOCTYPE html>
-<html lang="pl_PL" data-scroll-direction="vertical">
+<html lang="pl" data-scroll-direction="vertical">
 	@@include('html/_head.htm',{
 		"title":"Home"
 		})
 		<body data-barba="wrapper">
-		<div class="transition">
-			<div class="loading-words">
-				<h2 class="home-active home-active-first">Hello</h2>
-				<h2>Home</h2>
-				<h2>Aktualności</h2>
-				<h2>Filmografia</h2>
-				<h2>Bio</h2>
-			</div>
-		</div>
+			@@include('html/_transition.htm',{})
 		<div class="noise"></div>
 		<div class="wrapper" data-barba="container" data-barba-namespace="home">
 			@@include('html/_header.htm',{})
@@ -24,7 +16,7 @@
 							<div class="hello__wrapper">
 								<div class="hello__content">
 									<h1 class="hello__title title">Julia Maisa</h1>
-									<div class="hello__text text">
+									<div class="hello__text text" data-lang="hello_text">
 										Kierownik produkcji | Koordynacja produkcyjna
 									</div>
 								</div>
@@ -61,10 +53,10 @@
 					</div>
 				</section>
 				<section class="section intro-block light" id="intro-block" >
-					<div class="intro-block__container">
+					<div class="intro-block__container" data-block="en">
 						<div class="intro-block__body">
-							<h3 class="intro-block__title span-lines animate">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quos, illo facilis nemo consectetur recusandae adipisci ex, voluptatibus corporis sapiente rem mollitia. Natus earum perspiciatis placeat asperiores ex! Quo, aperiam amet.
-							Accusamus quia, temporibus aliquam deleniti tenetur expedita corrupti consectetur magnam obcaecati consequatur  </h3>
+							<h3 class="intro-block__title span-lines animate">Bathed in the silver glow of the cinema screen, we inhabit countless lives. 
+								We don masks of heroes and villains, seeking answers to the mysteries that have echoed through eternity.  </h3>
 							<div class="intro-block__line"></div>
 						</div>
 						
@@ -72,7 +64,7 @@
 				</section>
 				<section data-watch="navigator" data-watch-threshold="0.3" id="aktualnosci"  class="aktualnosci section featured-works light">
 					<div class="featured-works__container container-small">
-						<h3 class="featured-works__title title-dark "  >Aktualności</h3>
+						<h3 class="featured-works__title title-dark"  data-lang="works_title">Aktualności</h3>
 						<div class="featured-works__items works">
 							<article class="works__item">
 								<a href="https://filmpolski.pl/fp/index.php?film=1254261" target="_blank" class="works__image">
@@ -81,13 +73,13 @@
 									</div>
 								</a>
 								<div class="works__body">
-									<a href="https://filmpolski.pl/fp/index.php?film=1254261" target="_blank" class="works__title">CHŁOPI</a>
-									<p class="works__subtitle">Film animowany</p>
+									<a href="https://filmpolski.pl/fp/index.php?film=1254261" target="_blank" class="works__title" data-lang="chłopi">CHŁOPI</a>
+									<p class="works__subtitle" data-lang="chłopi-sub">Film animowany</p>
 									<div class="works__info">
 										<div class="works__year">2023</div>
 										<div class="works__category">Koordynacja produkcyjna</div>
 									</div>
-									<div class="works__text text">
+									<div class="works__text text" data-lang="chłopi-descr">
 										Historia o tragicznej miłości i życiu w małej społeczności, gdzie reguły i brutalne zasady gry wyznaczają każdemu określone miejsce w grupie, a wyjście poza ciasne ramy grozi upokorzeniem i odrzuceniem.
 									</div>
 								</div>
@@ -136,7 +128,7 @@
 						</div>
 					</div>
 					<div class="featured-works__link">
-						<a href="./works.html" data-goto=".filmografia" data-goto-speed="1500" class="featured-works__btn">Filmografia <span>(9)</span></a>
+						<a href="./works.html" data-goto=".filmografia" data-goto-speed="1500" class="featured-works__btn" data-lang="menu__link-2">Filmografia <span>(9)</span></a>
 					</div>
 				</section>
 				<section class="section light works-items light">
