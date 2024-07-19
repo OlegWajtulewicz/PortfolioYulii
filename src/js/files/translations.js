@@ -1,4 +1,3 @@
-
 export const homeTexts = {
 	"menu__link-1": {
 		pl: "Aktualności",
@@ -334,10 +333,6 @@ export const homeTexts = {
 	"zgoda": {
 		pl: "Wyrażam zgodę na przetwarzanie moich danych osobowych dla potrzeb niezbędnych do realizacji procesu rekrutacji (zgodnie z Ustawą z dnia 29.08.1997 roku o Ochronie Danych Osobowych; tekst jednolity: Dz. U. 2016 r. poz. 922).",
 		en: "I consent to the processing of my personal data for the purposes necessary for the recruitment process (in accordance with the Act of 29.08.1997 on the Protection of Personal Data; consolidated text: Journal of Laws. 2016, item 922).", 
-	},
-	"inne": {
-		pl: "INNE",
-		en: "OTHER", 
 	},
 };
         
