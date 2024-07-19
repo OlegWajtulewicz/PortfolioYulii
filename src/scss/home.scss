@@ -130,11 +130,11 @@
 		color: $mainColor; 
 		white-space: nowrap;
 		-webkit-text-stroke: 1px #fff;
-		font-family: 'Alistair Signature';
+		font-family: 'alistair';
 		-webkit-text-stroke: 2px transparent;
 		letter-spacing: 0.1rem;
 		@include adaptiveValue("font-size", 112, 32);
-		margin-bottom: 3vh;
+		margin-bottom: 6vh;
 		line-height: 1.3;
 	}
 	// .hello__text
