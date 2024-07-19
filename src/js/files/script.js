@@ -3,6 +3,8 @@ import { isMobile } from "./functions.js";
 // Підключення списку активних модулів
 import { flsModules } from "./modules.js";
 
+import { homeTexts } from './translations.js';
+
 import Lenis from 'lenis'
 import barba from '@barba/core';
 import { gsap } from "gsap";
@@ -62,42 +64,6 @@ const currentPathName = window.location.pathname;
 let currentLang = localStorage.getItem("language") || checkBrowserLang() || "pl";
 let currentTexts = {};
 
-// Тексты на домашней странице
-const homeTexts = {
-	"menu__link-1": { pl: "Aktualności", en: "Recently" },
-	"menu__link-2": { pl: "Filmografia", en: "Filmography" },
-	"menu__link-4": { pl: "Contakt", en: "Contact" },
-	"hello_text": { pl: "Kierownik produkcji | Koordynacja produkcyjna", en: "Production manager | Production coordination" },
-	"loading-word": { pl: "Cześć", en: "Hello" },
-	"works_title": { pl: "Aktualności", en: "Recently" },
-	"loading-word-3": { pl: "Aktualności", en: "Recently" },
-	"loading-word-4": { pl: "Filmografia", en: "Filmography" },
-	"policy": { pl: "Polityka prywatności", en: "Privacy Policy" },
-	"contact": { pl: "Skontaktuj się ze mną", en: "Contact me" },
-	"chłopi": { pl: "CHŁOPI", en: "The Peasants" },
-	"chłopi-sub": { pl: "Film animowany", en: "Animated movie" },
-	"chłopi-role": { pl: "Koordynacja produkcyjna", en: "Production coordination" },
-	"chłopi-descr": {
-		pl: "Historia o tragicznej miłości i życiu w małej społeczności, gdzie reguły i brutalne zasady gry wyznaczają każdemu określone miejsce w grupie, a wyjście poza ciasne ramy grozi upokorzeniem i odrzuceniem.",
-		en: "A tale of star-crossed love and life within the confines of a small community, where rigid rules and harsh codes of conduct dictate each individual's position within the group. Stepping beyond these narrow confines risks humiliation and ostracism."
-	},
-};
-
-// Загрузка переводов из внешнего файла
-// async function loadTranslations() {
-//     try {
-//         const response = await fetch('./src/js/translations.json');
-//         if (!response.ok) {
-//             throw new Error('Network response was not ok');
-//         }
-//         currentTexts = await response.json();
-//         checkPagePathName();
-//         changeLang();
-//         checkActiveLangButton();
-//     } catch (error) {
-//         console.error('Error loading translations:', error);
-//     }
-// }
 
 // Проверка пути страницы сайта
 function checkPagePathName() {
@@ -166,7 +132,9 @@ loadTranslations()
 
 console.log("navigator.language", checkBrowserLang());
 
-
+if (translations.egreg.en === "display: none;") {
+	document.getElementById('english-version').style.display = 'none';
+  }
 
 //==  translations ======================================================================================================================================================
 /** 

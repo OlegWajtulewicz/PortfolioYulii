@@ -132,6 +132,8 @@
 			}
 		}
 		button {
+			-webkit-text-stroke: .05px #ffffff;
+			text-shadow: 0px -1px 0px rgba(182, 182, 182, 0.72);
 			&.active {
 				color: $opAccentColor;
 			}
@@ -149,78 +151,3 @@
     visibility: hidden;
 }
 //========================================================================================================================================================
-// .menu {
-
-// 	// .menu__fixed-rounded-div
-
-// 	&__fixed-rounded-div {
-// 		position: absolute;
-// 		//bottom:  -85px;
-// 		bottom: -175px;
-// 		transform: translateY(-100%);
-// 		width: 100%;
-// 		left: 0;
-// 		//background: #cac85b;
-// 		.menu__rounded-div-wrap {
-// 			width: 100%;
-// 			height: 10vh;
-// 			will-change: height;
-// 			transition: all .8s cubic-bezier(.7, 0, .2, 1);
-// 			.menu__rounded-div {
-// 				width: 150%;
-// 				content: "";
-// 				display: block;
-// 				position: absolute;
-// 				background: $bgColor;
-// 				height: 750%;
-// 				left: 50%;
-// 				border-radius: 50%;
-// 				transform: translate(-50%, -86.666%);
-// 				z-index: 1;
-// 			}
-// 		}
-// 	}
-
-// 	// .menu__rounded-div-wrap
-
-// 	&__rounded-div-wrap {
-// 		width: 100%;
-// 		top: -8px;
-// 		position: relative;
-// 		height: 10vw;
-// 		overflow: hidden;
-// 		will-change: height;
-// 		transition: all 1.8s cubic-bezier(.7, 0, .2, 1);
-// 	}
-
-// 	// .menu__rounded-div
-
-// 	&__rounded-div {
-// 		height: 150%;
-// 		content: "";
-// 		display: block;
-// 		position: absolute;
-// 		//background: red;
-// 		width: 750%;
-// 		top: 50%;
-// 		border-radius: 50%;
-// 		transform: translate( -86.666%, -50%);
-// 		z-index: 1;
-// 	}
-// }
-// .menu__body._active .menu__rounded-div-wrap {
-// 	transition: all 1.8s cubic-bezier(.7, 0, .2, 1);
-// 	height: 0;
-	
-// }
-// .menu__fixed-rounded-div .menu__rounded-div-wrap .menu__rounded-div {
-// 	width: 112%;
-// 	content: "";
-// 	display: block;
-// 	position: absolute;
-// 	background: $bgColor;
-// 	height: 330%;
-// 	left: 50%;
-// 	border-radius: 50%;
-// 	transform: translate(-50%, -86.666%);
-// }

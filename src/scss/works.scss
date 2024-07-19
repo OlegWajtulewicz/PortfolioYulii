@@ -109,6 +109,7 @@
 	line-height: math.div( 60, 52);
 	margin-bottom: toRem(5);
 	transition: color 0.3s ease 0s;
+	text-transform: uppercase;
 	@media (any-hover: hover){
 		&:hover{
 			color: $accentColor;
