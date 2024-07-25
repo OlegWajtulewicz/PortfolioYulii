@@ -117,6 +117,7 @@
 		align-items: center;
 		text-align: center;
 		z-index: 2;
+		overflow: visible;
 		*:last-child {
 			margin-bottom: 0;
 		}
@@ -128,6 +129,8 @@
 	// .hello__title
 	&__title {
 		color: $mainColor; 
+		padding-top: 5vh;
+		padding-bottom: 2vh;
 		white-space: nowrap;
 		-webkit-text-stroke: 1px #fff;
 		font-family: 'alistair';
@@ -136,6 +139,7 @@
 		@include adaptiveValue("font-size", 112, 32);
 		margin-bottom: 6vh;
 		line-height: 1.3;
+		overflow: visible;
 	}
 	// .hello__text
 	&__text {
@@ -202,6 +206,9 @@
 				transform: translateY(-0.1em) rotate(0.001deg);
 			}
 		}
+		.ibg {
+			width: auto;
+		}
 	}
 	
 	&__logo-rotate {
@@ -211,7 +218,7 @@
 		.btn-wrapper-footer__logo {
 			width: 3.3em;
 
-			//transform: translate(35%, -50%);        // для bilda разкомментировать
+			transform: translate(35%, -50%);        // для bilda разкомментировать
 		}
 		.btn-wrapper-footer__logo-curve {
 			width: 5.5em;

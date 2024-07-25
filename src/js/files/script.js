@@ -2,7 +2,6 @@
 import { isMobile } from "./functions.js";
 // Підключення списку активних модулів
 import { flsModules } from "./modules.js";
-
 import { homeTexts } from './translations.js';
 
 import Lenis from 'lenis'
@@ -13,7 +12,6 @@ gsap.registerPlugin(ScrollTrigger);
 
 barba.hooks.afterEnter(() => {
   
-
 //========== card-border-color  ==============================================================================================================================================
 var colors = ['#f5ce7a7d', '#eacbb1ad', '#bcb8b857', '#44413c', '#d5d6c0', '#aeaeaec2', '#c0d2d68a', '#d2c7898a']; // Предопределенный список цветов
 var cards = document.querySelectorAll('.card');
@@ -132,9 +130,6 @@ loadTranslations()
 
 console.log("navigator.language", checkBrowserLang());
 
-if (translations.egreg.en === "display: none;") {
-	document.getElementById('english-version').style.display = 'none';
-  }
 
 //==  translations ======================================================================================================================================================
 /** 
